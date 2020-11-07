@@ -1,6 +1,6 @@
 package com.github.binarylei.redis.local;
 
-import com.github.binarylei.redis.local.core.RedisDataSet;
+import com.github.binarylei.redis.local.db.RedisDataSet;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisClusterConnection;
 import org.springframework.data.redis.connection.RedisConnection;

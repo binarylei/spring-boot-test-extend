@@ -9,6 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>spring-boot-test-starters</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>spring-boot-stater-test-data-redis</module>
+    </modules>
 
 
 </project>

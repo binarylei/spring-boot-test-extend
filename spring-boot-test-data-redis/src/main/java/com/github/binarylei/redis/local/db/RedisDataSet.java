@@ -1,4 +1,4 @@
-package com.github.binarylei.redis.local.core;
+package com.github.binarylei.redis.local.db;
 
 /**
  * @author binarylei

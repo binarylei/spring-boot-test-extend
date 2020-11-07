@@ -1,4 +1,4 @@
-package com.github.binarylei.redis.local.core;
+package com.github.binarylei.redis.local.command;
 
 import com.github.binarylei.redis.local.LocalRedisConnection;
 import org.springframework.data.redis.connection.DataType;

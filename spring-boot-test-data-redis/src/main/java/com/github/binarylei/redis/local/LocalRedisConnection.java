@@ -1,10 +1,10 @@
 package com.github.binarylei.redis.local;
 
-import com.github.binarylei.redis.local.core.LocalRedisKeyCommands;
-import com.github.binarylei.redis.local.core.LocalRedisServerCommands;
-import com.github.binarylei.redis.local.core.LocalRedisStringCommands;
-import com.github.binarylei.redis.local.core.RedisDataBase;
-import com.github.binarylei.redis.local.core.RedisDataSet;
+import com.github.binarylei.redis.local.command.LocalRedisKeyCommands;
+import com.github.binarylei.redis.local.command.LocalRedisServerCommands;
+import com.github.binarylei.redis.local.command.LocalRedisStringCommands;
+import com.github.binarylei.redis.local.db.RedisDataBase;
+import com.github.binarylei.redis.local.db.RedisDataSet;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.DefaultedRedisConnection;
 import org.springframework.data.redis.connection.MessageListener;

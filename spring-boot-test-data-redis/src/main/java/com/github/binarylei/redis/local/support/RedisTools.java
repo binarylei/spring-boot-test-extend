@@ -1,6 +1,6 @@
 package com.github.binarylei.redis.local.support;
 
-import com.github.binarylei.redis.local.core.RedisDataBase;
+import com.github.binarylei.redis.local.db.RedisDataBase;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
