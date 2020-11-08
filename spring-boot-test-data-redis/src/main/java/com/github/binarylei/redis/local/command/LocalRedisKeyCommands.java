@@ -97,7 +97,7 @@ public class LocalRedisKeyCommands extends AbstractRedisCommands implements Redi
         Map<String, RedisDataBase.Entry> data = getDb().getData();
         RedisDataBase.Entry entry = data.remove(byteToString(sourceKey));
         if (entry != null && !entry.isExpire()) {
-            getDb().put(targetKey, entry.getValue(), entry.getExpire());
+            getDb().putEntry(targetKey, entry);
         }
     }
 
@@ -141,7 +141,12 @@ public class LocalRedisKeyCommands extends AbstractRedisCommands implements Redi
 
     @Override
     public Boolean move(byte[] key, int dbIndex) {
-        throw new UnsupportedOperationException();
+        RedisDataBase db = getDb();
+        RedisDataBase.Entry entry = db.getEntry(key);
+        if (entry == null || entry.isExpire())
+            return false;
+        db.getDataSet().select(dbIndex).putEntry(key, entry);
+        return true;
     }
 
     @Override

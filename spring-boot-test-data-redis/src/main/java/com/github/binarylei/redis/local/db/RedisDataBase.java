@@ -63,6 +63,10 @@ public class RedisDataBase {
         return data.get(byteToString(key));
     }
 
+    public Entry putEntry(byte[] key, Entry entry) {
+        return data.put(byteToString(key), entry);
+    }
+
     public Object getValue(byte[] key) {
         return getValueFromEntry(getEntry(key));
     }
@@ -135,7 +139,7 @@ public class RedisDataBase {
         private String key;
         private T value;
         private long timestamp = Long.MAX_VALUE;
-        private long expire;
+        private long ttl;
 
         public Entry(String key, T value, long expire) {
             this.key = key;
@@ -145,7 +149,6 @@ public class RedisDataBase {
         }
 
         public boolean expire(long expire) {
-            this.expire = expire;
             long timestamp = (expire == Long.MAX_VALUE || expire < 0) ?
                     Long.MAX_VALUE : System.currentTimeMillis() + expire;
 
