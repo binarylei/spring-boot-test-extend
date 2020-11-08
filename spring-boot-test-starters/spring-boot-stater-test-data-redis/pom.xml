@@ -5,7 +5,7 @@
     <parent>
         <artifactId>spring-boot-test-starters</artifactId>
         <groupId>com.github.binarylei</groupId>
-        <version>1.0.0</version>
+        <version>0.1.1-alpha</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>spring-boot-stater-test-data-redis</artifactId>
@@ -13,7 +13,7 @@
     <dependencies>
         <dependency>
             <groupId>com.github.binarylei</groupId>
-            <artifactId>spring-boot-test-redis-data</artifactId>
+            <artifactId>spring-boot-test-data-redis</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
