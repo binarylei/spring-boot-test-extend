@@ -20,27 +20,27 @@ public class LocalRedisServerCommands extends AbstractRedisCommands implements R
 
     @Override
     public void bgReWriteAof() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void bgSave() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Long lastSave() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void save() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Long dbSize() {
-        return null;
+        return (long) getDb().getData().size();
     }
 
     @Override
@@ -66,71 +66,71 @@ public class LocalRedisServerCommands extends AbstractRedisCommands implements R
 
     @Override
     public void shutdown() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void shutdown(ShutdownOption option) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Properties getConfig(String pattern) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setConfig(String param, String value) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void resetConfigStats() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Long time() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void killClient(String host, int port) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setClientName(byte[] name) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String getClientName() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public List<RedisClientInfo> getClientList() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void slaveOf(String host, int port) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void slaveOfNoOne() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void migrate(byte[] key, RedisNode target, int dbIndex, MigrateOption option) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void migrate(byte[] key, RedisNode target, int dbIndex, MigrateOption option, long timeout) {
-
+        throw new UnsupportedOperationException();
     }
 }

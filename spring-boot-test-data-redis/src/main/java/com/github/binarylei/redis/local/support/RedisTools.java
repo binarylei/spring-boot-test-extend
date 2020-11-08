@@ -1,6 +1,5 @@
 package com.github.binarylei.redis.local.support;
 
-import com.github.binarylei.redis.local.db.RedisDataBase;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
@@ -13,7 +12,4 @@ public abstract class RedisTools {
         return new StringRedisSerializer().deserialize(bytes);
     }
 
-    public static byte[] getValue(RedisDataBase.Entry entry) {
-        return entry != null ? entry.getValue() : null;
-    }
 }

@@ -1,16 +1,16 @@
-package com.github.binarylei.redis.local;
+package com.github.binarylei.redis.local.command;
 
-import org.junit.Assert;
+import com.github.binarylei.redis.local.LocalRedisConnectionFactory;
+import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
  * @author binarylei
- * @version 2020-11-07
+ * @version 2020-11-08
  */
-public  class LocalRedisConnectionTest {
+public abstract class AbstractLocalRedisCommandsTest {
 
     protected RedisTemplate<String, Object> redisTemplate;
 
@@ -26,10 +26,8 @@ public  class LocalRedisConnectionTest {
         redisTemplate.afterPropertiesSet();
     }
 
-    @Test
-    public void test() {
-        redisTemplate.opsForValue().set("key1", "value1");
-        Assert.assertEquals("value1", redisTemplate.opsForValue().get("key1"));
+    @After
+    public void tearDown() throws Exception {
+        redisTemplate.getConnectionFactory().getConnection().flushDb();
     }
-
 }

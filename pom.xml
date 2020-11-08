@@ -11,10 +11,10 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.binarylei</groupId>
     <artifactId>spring-boot-test-parent</artifactId>
-    <version>0.1.1-alpha</version>
+    <version>0.1.1-alpha2</version>
     <modules>
-        <module>spring-boot-test-starters</module>
         <module>spring-boot-test-data-redis</module>
+        <module>spring-boot-test-starters</module>
         <module>spring-boot-test-extend-samples</module>
     </modules>
     <packaging>pom</packaging>
@@ -97,7 +97,7 @@
                         <artifactId>maven-gpg-plugin</artifactId>
                         <version>1.6</version>
                         <configuration>
-                            <skip>true</skip>
+                            <!--<skip>true</skip>-->
                         </configuration>
                         <executions>
                             <execution>

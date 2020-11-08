@@ -13,8 +13,8 @@
 ```xml
 <dependency>
     <groupId>com.github.binarylei</groupId>
-    <artifactId>spring-boot-stater-test-data-redis</artifactId>
-    <version>0.1.1-alpha</version>
+    <artifactId>spring-boot-starter-test-data-redis</artifactId>
+    <version>0.1.1-alpha2</version>
 </dependency>
 ```
 
