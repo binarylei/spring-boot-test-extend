@@ -12,6 +12,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>data-redis-spring-boot-test-sample</module>
+        <module>mybatis-spring-boot-test-sample</module>
     </modules>
 
 
