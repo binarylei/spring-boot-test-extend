@@ -14,6 +14,7 @@
     <version>0.1.1-alpha2</version>
     <modules>
         <module>spring-boot-test-data-redis</module>
+        <module>spring-boot-test-data-jdbc</module>
         <module>spring-boot-test-starters</module>
         <module>spring-boot-test-extend-samples</module>
     </modules>
@@ -21,6 +22,9 @@
 
     <properties>
         <project.release.version>0.1.1-alpha2</project.release.version>
+        <mybatis.plus.version>3.4.0</mybatis.plus.version>
+        <mybatis.plus.dynamic.version>3.2.1</mybatis.plus.dynamic.version>
+        <mybatis.version>2.1.3</mybatis.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

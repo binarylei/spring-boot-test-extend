@@ -1,9 +1,0 @@
-# AutoConfigureTestMybatis auto-configuration imports
-com.github.binarylei.mybatis.configuration.AutoConfigureTestMybatis=\
-org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration,\
-org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration,\
-org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration,\
-org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration,\
-org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration,\
-org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration
-org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration
