@@ -1,4 +1,4 @@
-package com.github.binarylei.mybatis.plus.config;
+package com.github.binarylei.mybatisplus.config;
 
 import com.github.binarylei.test.autoconfigure.mybatisplus.MybatisPlusTest;
 import org.apache.ibatis.annotations.Mapper;

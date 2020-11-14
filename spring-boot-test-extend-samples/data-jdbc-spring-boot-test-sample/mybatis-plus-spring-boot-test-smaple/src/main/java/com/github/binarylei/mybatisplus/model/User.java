@@ -1,4 +1,4 @@
-package com.github.binarylei.mybatis.plus.model;
+package com.github.binarylei.mybatisplus.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
