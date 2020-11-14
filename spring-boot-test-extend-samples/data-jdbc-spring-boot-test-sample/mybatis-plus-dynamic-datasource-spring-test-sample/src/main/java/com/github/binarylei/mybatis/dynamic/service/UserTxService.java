@@ -14,5 +14,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 @DS("slave")
-public class UserService2 extends ServiceImpl<UserMapper, User> {
+public class UserTxService extends ServiceImpl<UserMapper, User> {
 }

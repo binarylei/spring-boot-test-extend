@@ -1,6 +1,7 @@
-package com.github.binarylei.mybatis.dynamic;
+package com.github.binarylei.mybatis.dynamic.service;
 
 import com.gitbub.binarylei.model.User;
+import com.github.binarylei.mybatis.dynamic.SpringBootTestFramework;
 import com.github.binarylei.mybatis.dynamic.service.UserService;
 import org.junit.Assert;
 import org.junit.Test;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 /**
+ * 测试动态数据源是否正常工作
+ *
  * @author binarylei
  * @version 2020-11-14
  */
