@@ -13,7 +13,7 @@
     <dependencies>
         <dependency>
             <groupId>com.github.binarylei</groupId>
-            <artifactId>spring-boot-test-data-jdbc</artifactId>
+            <artifactId>spring-boot-test-autoconfigure-support</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

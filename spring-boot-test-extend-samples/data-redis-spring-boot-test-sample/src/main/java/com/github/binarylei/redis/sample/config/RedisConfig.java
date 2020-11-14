@@ -1,6 +1,6 @@
 package com.github.binarylei.redis.sample.config;
 
-import com.github.binarylei.redis.configuration.AutoConfigureTestRedis;
+import com.github.binarylei.redis.autoconfigure.AutoConfigureTestRedis;
 import org.springframework.context.annotation.Configuration;
 
 /**

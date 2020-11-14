@@ -1,3 +1,3 @@
 # AutoConfigureTestRedis auto-configuration imports
-com.github.binarylei.redis.configuration.AutoConfigureTestRedis=\
-com.github.binarylei.redis.configuration.RedisTestAutoConfiguration
+com.github.binarylei.redis.autoconfigure.AutoConfigureTestRedis=\
+com.github.binarylei.redis.autoconfigure.RedisTestAutoConfiguration
