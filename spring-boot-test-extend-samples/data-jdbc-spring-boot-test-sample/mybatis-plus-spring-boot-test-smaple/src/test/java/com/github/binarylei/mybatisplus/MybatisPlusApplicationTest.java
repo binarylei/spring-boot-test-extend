@@ -1,7 +1,7 @@
 package com.github.binarylei.mybatisplus;
 
-import com.github.binarylei.mybatisplus.config.MybatisPlusConfig;
-import com.github.binarylei.mybatisplus.mapper.UserMapper;
+import com.github.binarylei.mybatis.dynamic.config.MybatisPlusConfig;
+import com.github.binarylei.mybatis.dynamic.mapper.UserMapper;
 import com.github.binarylei.mybatisplus.model.User;
 import org.junit.Assert;
 import org.junit.Test;
