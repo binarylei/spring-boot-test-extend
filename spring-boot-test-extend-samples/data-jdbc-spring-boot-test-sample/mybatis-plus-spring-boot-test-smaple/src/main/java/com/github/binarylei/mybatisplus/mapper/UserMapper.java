@@ -1,7 +1,7 @@
-package com.github.binarylei.mybatis.dynamic.mapper;
+package com.github.binarylei.mybatisplus.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.github.binarylei.mybatisplus.model.User;
+import com.gitbub.binarylei.model.User;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

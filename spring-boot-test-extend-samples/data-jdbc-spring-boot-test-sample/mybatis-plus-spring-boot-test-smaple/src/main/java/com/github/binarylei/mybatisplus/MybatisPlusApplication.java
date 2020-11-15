@@ -1,7 +1,7 @@
 package com.github.binarylei.mybatisplus;
 
-import com.github.binarylei.mybatis.dynamic.mapper.UserMapper;
-import com.github.binarylei.mybatisplus.model.User;
+import com.gitbub.binarylei.model.User;
+import com.github.binarylei.mybatisplus.mapper.UserMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.junit.Assert;
 import org.mybatis.spring.annotation.MapperScan;

@@ -1,8 +1,8 @@
 package com.github.binarylei.mybatisplus;
 
-import com.github.binarylei.mybatis.dynamic.config.MybatisPlusConfig;
-import com.github.binarylei.mybatis.dynamic.mapper.UserMapper;
-import com.github.binarylei.mybatisplus.model.User;
+import com.gitbub.binarylei.model.User;
+import com.github.binarylei.mybatisplus.config.MybatisPlusConfig;
+import com.github.binarylei.mybatisplus.mapper.UserMapper;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,7 +27,7 @@ public class MybatisPlusApplicationTest {
     private UserMapper userMapper;
 
     @Test
-    public void test() {
+    public void testMybatisPlus() {
         User user = userMapper.selectById(2L);
         Assert.assertEquals("binarylei2", user.getName());
     }
