@@ -1,15 +1,14 @@
 package com.github.binarylei.test.runner;
 
-import com.github.binarylei.test.runner.config.MockSpringRunnerConfig;
-import com.github.binarylei.test.runner.mapper.UserTestBeanMapper;
-import com.github.binarylei.test.runner.service.AuthTestService;
-import com.github.binarylei.test.runner.service.MenuTestService;
-import com.github.binarylei.test.runner.service.impl.MenuTestServiceImpl;
-import com.github.binarylei.test.runner.service.impl.UserTestBeanServiceImpl;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Service;
 import org.springframework.test.context.ContextConfiguration;
 
 import java.net.URI;
@@ -22,7 +21,7 @@ import static org.mockito.Mockito.when;
  * @version 2020-11-15
  */
 @RunWith(MockSpringRunner.class)
-@ContextConfiguration(classes = MockSpringRunnerConfig.class)
+@ContextConfiguration(classes = MockSpringRunnerTest.MockSpringRunnerConfig.class)
 public class MockSpringRunnerTest {
 
     @Autowired
@@ -39,7 +38,6 @@ public class MockSpringRunnerTest {
     public void testMockSpringRunner() {
         // 1. 注入字段在 spring context
         Assert.assertNotNull(userTestBeanMapper);
-        Assert.assertEquals("binarylei2", userTestBeanMapper.selectById(2).getName());
 
         // 2. 注入字段在 spring context 没有时，如果是实现类，默认会先 new 后再进行属性注入
         Assert.assertNotNull(userTestBeanService.getUserTestBeanMapper());
@@ -53,6 +51,55 @@ public class MockSpringRunnerTest {
         // 4. 属性注入时，testInstance 中定义的字段替换 spring context 中的 bean
         Assert.assertSame(uri, userTestBeanService.getUri());
         Assert.assertSame(menuTestService, userTestBeanService.getMenuTestService());
+    }
+
+    @Configuration
+    public static class MockSpringRunnerConfig {
+        @Bean
+        public URI url() {
+            return URI.create("http://127.0.0.1");
+        }
+
+        @Bean
+        public UserTestBeanMapper userTestBeanMapper() {
+            return new UserTestBeanMapper() {
+            };
+        }
+    }
+
+    public static interface AuthTestService {
+        String testMethod1();
+    }
+
+    public static interface MenuTestService {
+    }
+
+    public static interface UserTestBeanService {
+    }
+
+    public static class MenuTestServiceImpl implements MenuTestService {
+    }
+
+    @Data
+    @Service
+    public static class UserTestBeanServiceImpl implements UserTestBeanService {
+        @Autowired
+        private UserTestBeanMapper userTestBeanMapper;
+        @Autowired
+        private MenuTestService menuTestService;
+
+        @Autowired
+        private URI uri;
+    }
+
+    public static interface UserTestBeanMapper {
+    }
+
+    @Data
+    @TableName("user")
+    public static class UserTestBean {
+        private int id;
+        private String name;
     }
 
 }

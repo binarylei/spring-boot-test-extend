@@ -1,4 +1,4 @@
-package com.github.binarylei.test.runner.config;
+package com.github.binarylei.test.mock.config;
 
 import com.github.binarylei.test.autoconfigure.mybatisplus.AutoConfigureMybatisPlus;
 import org.apache.ibatis.annotations.Mapper;
@@ -14,7 +14,7 @@ import java.net.URI;
  */
 @Configuration
 @AutoConfigureMybatisPlus
-@MapperScan(basePackages = "com.github.binarylei.test.runner.mapper",
+@MapperScan(basePackages = "com.github.binarylei.test.mock.mapper",
         annotationClass = Mapper.class)
 public class MockSpringRunnerConfig {
 

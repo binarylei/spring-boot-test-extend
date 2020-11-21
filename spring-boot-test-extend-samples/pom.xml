@@ -14,6 +14,7 @@
         <module>data-redis-spring-boot-test-sample</module>
         <module>data-jdbc-spring-boot-test-sample</module>
         <module>common-test-sample</module>
+        <module>mock-spring-boot-test-sample</module>
     </modules>
 
     <dependencies>
