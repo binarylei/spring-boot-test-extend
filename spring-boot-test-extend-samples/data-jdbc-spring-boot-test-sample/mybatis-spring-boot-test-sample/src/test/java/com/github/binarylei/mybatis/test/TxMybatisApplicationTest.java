@@ -4,6 +4,7 @@ import com.github.binarylei.mybatis.test.config.MybatisConfig;
 import com.github.binarylei.mybatis.test.mapper.UserMapper;
 import com.github.binarylei.mybatis.test.model.User;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +23,13 @@ import org.springframework.transaction.annotation.Transactional;
 @SpringBootTest(classes = MybatisConfig.class)
 @Transactional
 public class TxMybatisApplicationTest {
-
     @Autowired
     private UserMapper userMapper;
+
+    @Before
+    public void setUp() throws Exception {
+        Assert.assertNull(userMapper.selectUserById(3L));
+    }
 
     @Test
     public void testTx() {
@@ -39,8 +44,4 @@ public class TxMybatisApplicationTest {
         Assert.assertEquals("binarylei4", userMapper.selectUserById(4L).getName());
     }
 
-    @Test
-    public void testTx3() {
-        Assert.assertNull(userMapper.selectUserById(3L));
-    }
 }
