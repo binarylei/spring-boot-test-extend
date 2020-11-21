@@ -92,7 +92,7 @@ public class TxMybatisApplicationTest {
 
 ## 多数据源
 
-详见 `[mybatis-dynamic-datasource-spring-test-sample](<https://github.com/binarylei/spring-boot-test-extend/tree/main/spring-boot-test-extend-samples/data-jdbc-spring-boot-test-sample>)`
+详见 [mybatis-dynamic-datasource-spring-test-sample](<https://github.com/binarylei/spring-boot-test-extend/tree/main/spring-boot-test-extend-samples/data-jdbc-spring-boot-test-sample>)
 
 ```properties
 spring.datasource.master.driver-class-name=org.h2.Driver

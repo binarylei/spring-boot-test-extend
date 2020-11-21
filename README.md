@@ -6,7 +6,7 @@
 
 2. [Mybatis Unit 使用说明](<https://github.com/binarylei/spring-boot-test-extend/tree/main/spring-boot-test-autoconfigure-support/src/main/java/com/github/binarylei/test/autoconfigure/mybatis>)
 
-3. [MybatisPlus Unit 使用说明](<https://github.com/binarylei/spring-boot-test-extend/tree/main/spring-boot-test-autoconfigure-support/src/main/java/com/github/binarylei/test/autoconfigure/mybatisplus>)
+3. [Mybatis-Plus Unit 使用说明](<https://github.com/binarylei/spring-boot-test-extend/tree/main/spring-boot-test-autoconfigure-support/src/main/java/com/github/binarylei/test/autoconfigure/mybatisplus>)
 
 4. [Redis Unit 使用说明](<https://github.com/binarylei/spring-boot-test-extend/tree/main/spring-boot-test-autoconfigure-support/src/main/java/com/github/binarylei/test/autoconfigure/redis>)
 
