@@ -1,32 +1,23 @@
-# Mybatis Unit
+# Mybatis-Plus Unit
 
-使用 h2 内存数据库进行单元测试。`{@see @MybatisTest}` 提供了手动装配的功能。
+同样使用 h2 内存数据库进行单元测试。`@MybatisPlusTest` 和 `@MybatisPlusDynamicDataSourceTest` 提供了手动装配的功能。
 
-## Mybatis Unit 使用说明
+## Mybatis-Plus Unit 使用说明
 
-详见 `mybatis-spring-boot-test-sample` 和 `mybatis-dynamic-datasource-spring-test-sample` 工程
+详见 `mybatis-plus-spring-boot-test-smaple` 和 `mybatis-plus-dynamic-datasource-spring-test-sample` 工程
 
 1. 引入 Maven 依赖
 
     ```xml
     <dependency>
         <groupId>com.github.binarylei</groupId>
-        <artifactId>mybatis-spring-boot-starter-test</artifactId>
+        <artifactId>mybatis-plus-spring-boot-starter-test</artifactId>
         <version>0.1.2-beta</version>
+        <scope>test</scope>
     </dependency>
     ```
 
-2. 使用 `@MybatisTest` 注解自动注入 Mybatis 测试环境
-
-    ```java
-    @MybatisTest
-    @MapperScan(basePackages = "com.github.binarylei.mybatis.test.mapper",
-            annotationClass = Mapper.class)
-    public class MybatisConfig {
-    }
-    ```
-
-3. 配置 schema.sql 和 data.sql 到 classpath(resources/) 目录下
+2. 配置 schema.sql 和 data.sql 到 classpath(resources/) 目录下
 
     ```sql
     -- schema.sql
@@ -41,11 +32,22 @@
     insert into user values(2, 'binarylei2');
     ```
 
+
+3. 使用 `@MybatisPlusTest` 注解自动注入 Mybatis 测试环境
+
+    ```java
+    @MybatisPlusTest
+    @MapperScan(basePackages = "com.github.binarylei.mybatisplus.mapper",
+            annotationClass = Mapper.class)
+    public class MybatisPlusConfig {
+    }
+    ```
+    
 4. 至此，你就可以将 Mybatis 无缝集成到你的测试环境中
 
     ```java
     @RunWith(SpringRunner.class)
-    @SpringBootTest(classes = MybatisConfig.class)
+    @SpringBootTest(classes = MybatisPlusConfig.class)
     public class MybatisApplicationTest {
         @Autowired
         private UserMapper userMapper;
@@ -58,50 +60,40 @@
     }
     ```
 
-## 事务测试
-
-```java
-@RunWith(SpringRunner.class)
-@SpringBootTest(classes = MybatisConfig.class)
-@Transactional
-public class TxMybatisApplicationTest {
-    @Autowired
-    private UserMapper userMapper;
-
-    @Before
-    public void setUp() throws Exception {
-        Assert.assertNull(userMapper.selectUserById(3L));
-    }
-    
-    @Test
-    public void testTx() {
-        Assert.assertNull(userMapper.selectUserById(3L));
-        userMapper.insertUser(new User(3L, "binarylei3"));
-        Assert.assertEquals("binarylei3", userMapper.selectUserById(3L).getName());
-    }
-    
-    // 插入测试数据，单元测试完成后自动回滚
-    @Test
-    @Sql(statements = "insert into user(id,name) values(4,'binarylei4')")
-    public void testSql() {
-        Assert.assertEquals("binarylei4", userMapper.selectUserById(4L).getName());
-    }
-}
-```
-
 ## 多数据源
 
-详见 [mybatis-dynamic-datasource-spring-test-sample](<https://github.com/binarylei/spring-boot-test-extend/tree/main/spring-boot-test-extend-samples/data-jdbc-spring-boot-test-sample>)
+详见 [mybatis-plus-dynamic-datasource-spring-test-sample](<https://github.com/binarylei/spring-boot-test-extend/tree/main/spring-boot-test-extend-samples/data-jdbc-spring-boot-test-sample>)
 
-```properties
-spring.datasource.master.driver-class-name=org.h2.Driver
-#jdbc-url：properties不能加引号，而yaml则必须加引号？？？
-spring.datasource.master.jdbc-url=jdbc:h2:mem:master;INIT=runscript from 'classpath:sql/master/schema.sql'\\;runscript from 'classpath:sql/master/data.sql'
-spring.datasource.master.password=root
-spring.datasource.master.username=root
+1. 配置文件
 
-spring.datasource.slave.driver-class-name=org.h2.Driver
-spring.datasource.slave.jdbc-url=jdbc:h2:mem:slave;INIT=runscript from 'classpath:sql/slave/schema.sql'\\;runscript from 'classpath:sql/slave/data.sql'
-spring.datasource.slave.username=root
-spring.datasource.slave.password=root
-```
+    ```yaml
+    spring:
+      datasource:
+        dynamic:
+          primary: master
+          datasource:
+            master:
+              driver-class-name: org.h2.Driver
+              # url必须的引号，否则会解析错误
+              url: "jdbc:h2:mem:master;INIT=runscript from 'classpath:sql/master/schema.sql'\\;runscript from 'classpath:sql/master/data.sql'"
+              password: root
+              username: root
+            slave:
+              driver-class-name: org.h2.Driver
+              url: "jdbc:h2:mem:slave;INIT=runscript from 'classpath:sql/slave/schema.sql'\\;runscript from 'classpath:sql/slave/data.sql'"
+              password: root
+              username: root
+    ```
+
+2. 使用 `@MybatisPlusDynamicDataSourceTest` 注解自动注入多数据源测试环境
+
+    ```java
+    @MybatisPlusDynamicDataSourceTest
+    @MapperScan(basePackages = "com.github.binarylei.mybatisplus.dynamic.mapper",
+            annotationClass = Mapper.class)
+    @ComponentScan("com.github.binarylei.mybatisplus.dynamic.service")
+    public class DynamicDataSourceConfig {
+    }
+    ```
+    
+3. 至此，你就可以将动态数据源无缝集成到你的测试环境中。不过缺陷就是对事务的支持不太好，实际使用时尽量不要在一个事务里操作两个数据源。

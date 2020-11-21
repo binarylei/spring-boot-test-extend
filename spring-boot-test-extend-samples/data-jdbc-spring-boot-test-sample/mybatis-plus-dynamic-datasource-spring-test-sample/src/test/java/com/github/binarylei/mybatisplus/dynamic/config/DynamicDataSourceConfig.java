@@ -15,9 +15,4 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan("com.github.binarylei.mybatisplus.dynamic.service")
 public class DynamicDataSourceConfig {
 
-//    @Bean
-//    @ConditionalOnMissingBean
-//    public PlatformTransactionManager transactionManager(DataSource dataSource) {
-//        return new DataSourceTransactionManager(dataSource);
-//    }
 }
