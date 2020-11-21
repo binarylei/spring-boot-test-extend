@@ -14,7 +14,7 @@
 <dependency>
     <groupId>com.github.binarylei</groupId>
     <artifactId>spring-boot-starter-test-data-redis</artifactId>
-    <version>0.1.1-alpha2</version>
+    <version>0.1.2-beta</version>
 </dependency>
 ```
 
