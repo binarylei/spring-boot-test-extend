@@ -14,11 +14,11 @@
 
 详见 `spring-boot-test-data-redis-sample` 工程
 
-1. 使用 `@AutoConfigureTestRedis` 注解自动注入 Redis 测试环境
+1. 使用 `@RedisTest` 注解自动注入 Redis 测试环境
 
 ```java
 @Configuration
-@AutoConfigureTestRedis
+@RedisTest
 public class RedisConfig {
 }
 ```

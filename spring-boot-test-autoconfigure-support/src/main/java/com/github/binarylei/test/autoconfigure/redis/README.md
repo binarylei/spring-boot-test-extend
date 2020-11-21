@@ -20,7 +20,7 @@
 
 ```java
 @Configuration
-@AutoConfigureTestRedis
+@RedisTest
 public class RedisConfig {
 }
 ```
