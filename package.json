@@ -1,0 +1,19 @@
+{
+  "name": "spring-boot-test-extend",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "vuepress": "^1.7.1",
+    "vuepress-plugin-mermaidjs": "^1.8.1"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+github.com/binarylei/spring-boot-test-extend.git"
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/binarylei/spring-boot-test-extend#readme"
+}

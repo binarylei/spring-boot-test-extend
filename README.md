@@ -40,3 +40,15 @@ public class AutoConfigureRedisTest {
     }
 }
 ```
+
+```text
+spring-boot-test-extend/          # 项目根目录（有 package.json）
+├── package.json                  # 项目依赖配置（核心）
+├── docs/                         # 文档源文件目录
+│   ├── .vuepress/                # VuePress 配置目录
+│   │   ├── config.js             # 文档配置
+│   │   └── dist/                 # 构建后的静态文件（自动生成）
+│   └── README.md                 # 文档内容
+└── dev/
+    └── deploy_gh_pages.sh        # 部署脚本
+```
